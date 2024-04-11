@@ -1,14 +1,3 @@
-/*Teatro Jogral
-funÁÙes:
-
-gerente: pode executar todas as funÁoes, editar, excluir ou adicionar usuario e sessoes, vender e devolver ingressos,
-reservar assentos para outras finalidades, ver a porcentagem e a quantidade de assentos disponiveis e ocupados
-e visualizar os usuarios cadastraddos
-
-
-bilheteiro: o bilheteiro pode somente vender e devolver ingressos
-*/
-
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -185,12 +174,12 @@ void CadastrarUsuario(){
     system("clear || cls");
 
     fflush(stdin);
-    printf("Digite o nome do usu·rio a ser incluido: ");
+    printf("Digite o nome do usu√°rio a ser incluido: ");
     scanf("%s", Inserir.nome);
-    printf("Digite a senha do usu·rio a ser incluido: ");
+    printf("Digite a senha do usu√°rio a ser incluido: ");
     scanf("%s", Inserir.senha);
     fflush(stdin);
-    printf("Digite o tipo do usu·rio a ser incluido: ");
+    printf("Digite o tipo do usu√°rio a ser incluido: ");
     scanf(" %c", &Inserir.tipo);
 
     fprintf(arq_usuario,"\n%s %s %c",Inserir.nome, Inserir.senha, Inserir.tipo);
@@ -274,7 +263,7 @@ void ExcluirUsuario(){
     remove("usuarios.txt");
     rename("temp.txt", "usuarios.txt");
     system("clear || cls");
-    printf("Usu·rio excluido!\n\n");
+    printf("Usu√°rio excluido!\n\n");
 }
 
 
@@ -305,7 +294,7 @@ void VendaIngressos(){
         return;
     }
 
-    printf("O ingresso È pago ou cortesia (P/C)? ");
+    printf("O ingresso √© pago ou cortesia (P/C)? ");
     scanf(" %c", &cortesia);
 
 	while(fscanf(arq_assentos, "%s %c %s", ChecarAssentos.sessao, &ChecarAssentos.fileira, ChecarAssentos.cadeiras) == 3){
@@ -327,7 +316,7 @@ void VendaIngressos(){
 
 				else{
 
-					printf("Assento inv·lido!\n");
+					printf("Assento inv√°lido!\n");
 				}
 			}
 		}
@@ -379,7 +368,7 @@ void DevolucaoIngressos(){
 					printf("Assento devolvido!");
 				}
 				else{
-					printf("Assento j· vazio!");
+					printf("Assento j√° vazio!");
 				}
 			}
 		}
@@ -422,8 +411,8 @@ void QuantidadeIngressos(){
 
 	system("clear || cls");
 
-	printf("Quantidade de cadeiras ocupadas na sess„o: %d\n", quant);
-	printf("Quantidade de cadeiras vagas na sess„o: %d\n ", 112 - quant);
+	printf("Quantidade de cadeiras ocupadas na sess√£o: %d\n", quant);
+	printf("Quantidade de cadeiras vagas na sess√£o: %d\n ", 112 - quant);
 	fclose(arq_assentos);
     }
 
@@ -433,7 +422,7 @@ void CadastrarSessaoOuEditarSessao() {
 
     system("clear || cls");
 
-    printf("Cadastrar/Alterar Sess„o\n");
+    printf("Cadastrar/Alterar Sess√£o\n");
 
     printf("Digite o ID da sessao: ");
     scanf("%s", EscreverEspetaculo.ID);
@@ -444,7 +433,7 @@ void CadastrarSessaoOuEditarSessao() {
     printf("Digite o nome do(a) diretor(a): ");
     scanf("%s", EscreverEspetaculo.direcao);
 
-    printf("Digite a duracao da peÁa em minutos: ");
+    printf("Digite a duracao da pe√ßa em minutos: ");
     scanf("%d", &EscreverEspetaculo.duracao);
 
     printf("Digite a faixa etaria: ");
@@ -581,11 +570,11 @@ void PorcentagemIngressos(){
     system("clear || cls");
 
 	if(ocup == 112){
-		printf("Percentual de cadeiras disponiveis para compra: 0%%\n"); //Total de cadeiras que podem ser compradas, contando as que j· foram vendidas, ou seja, desconsidera-se as cadeiras com *
+		printf("Percentual de cadeiras disponiveis para compra: 0%%\n"); //Total de cadeiras que podem ser compradas, contando as que j√° foram vendidas, ou seja, desconsidera-se as cadeiras com *
 		printf("Percentual de cadeiras ocupadas: 100%%\n");
 	}
 	else{
-		printf("Percentual de cadeiras disponiveis para: %.lf%%\n", ((112-ocup)/112)*100); //Total de cadeiras que podem ser compradas, contando as que j· foram vendidas, ou seja, desconsidera-se as cadeiras com *
+		printf("Percentual de cadeiras disponiveis para: %.lf%%\n", ((112-ocup)/112)*100); //Total de cadeiras que podem ser compradas, contando as que j√° foram vendidas, ou seja, desconsidera-se as cadeiras com *
 		printf("Percentual de cadeiras ocupadas: %.lf%%\n", (ocup/112)*100);
 	}
 }
@@ -644,7 +633,7 @@ void ExcluirSessao(){
     remove("assentos.txt");
     rename("temp.txt", "assentos.txt");
     system("clear || cls");
-    printf("sess„o excluida!");
+    printf("sess√£o excluida!");
 }
 
 
@@ -711,7 +700,7 @@ void MostraUsuarios(){
 
     system("clear || cls");
 
-    printf("\n\n::::::::::::::::Usu·rios caddastrados::::::::::::::::\n");
+    printf("\n\n::::::::::::::::Usu√°rios caddastrados::::::::::::::::\n");
 
     while (fscanf(arq_usuario, "%s %s %c", nome, senha, &tipo) == 3) {
         printf("Nome: %s\n", nome);
@@ -741,7 +730,7 @@ int main(){
 
     arq_usuario = fopen("usuarios.txt", "r");
     if (arq_usuario == NULL) {
-        printf("Erro ao abrir o arquivo de usu·rios.\n");
+        printf("Erro ao abrir o arquivo de usu√°rios.\n");
         return 1;
     }
 
@@ -767,7 +756,7 @@ int main(){
         scanf("%s", login);
 
         if (strcmp(login, "sair") == 0) {
-            printf("\nAtÈ mais!\n");
+            printf("\nAt√© mais!\n");
             return 0;
         }
 
@@ -782,7 +771,7 @@ int main(){
 
         if (loginValido == 0){
             printf("\nCredenciais invalidas!\n");
-            printf("\nInsira um usu·rio v·lido ou digite ''sair'' para encerrar o programa\n\n");
+            printf("\nInsira um usu√°rio v√°lido ou digite ''sair'' para encerrar o programa\n\n");
         }
     }
     while(loginValido == 3 || loginValido == 0);
@@ -791,7 +780,7 @@ int main(){
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    // Verificar as credenciais do usu·rio
+    // Verificar as credenciais do usu√°rio
 
     if (loginValido == 1){
         printf("\nLogin bem-sucedido!\n");
@@ -799,12 +788,12 @@ int main(){
         do{
             fflush(stdin);
             printf("\n<-=-=-=-=-=-=-=-=--=-=-=-=-=-=->\n");
-            printf("opÁıes:\n\n[1] Cadastrar usu·rio\n[2] Editar usu·rio\n[3] Apagar usu·rio\n[4] Vender Ingressos\n"
-                   "[5] DevoluÁ„o de ingressos\n[6] Quantidade de vendas\n[7] Cadastrar/ alterar sess„o\n"
-                   "[8] Porcentagem de ingressos\n[9] Excluir sess„o\n[10] Reservar assento\n[11] Mostrar usu·rios cadastrados\n[0] Sair");
+            printf("op√ß√µes:\n\n[1] Cadastrar usu√°rio\n[2] Editar usu√°rio\n[3] Apagar usu√°rio\n[4] Vender Ingressos\n"
+                   "[5] Devolu√ß√£o de ingressos\n[6] Quantidade de vendas\n[7] Cadastrar/ alterar sess√£o\n"
+                   "[8] Porcentagem de ingressos\n[9] Excluir sess√£o\n[10] Reservar assento\n[11] Mostrar usu√°rios cadastrados\n[0] Sair");
             printf("\n<-=-=-=-=-=-=-=-=--=-=-=-=-=-=->\n");
 
-            printf("escolha uma opÁ„o: ");
+            printf("escolha uma op√ß√£o: ");
             scanf("%d", &escolha);
 
             switch(escolha){
@@ -865,7 +854,7 @@ int main(){
 
             }
         }while(escolha != 0);
-    printf("AtÈ mais!");
+    printf("At√© mais!");
     }
 
     else if(loginValido == 2){
@@ -873,9 +862,9 @@ int main(){
         do{
             fflush(stdin);
             printf("\n<-=-=-=-=-=-=-=-=--=-=-=-=-=-=->\n");
-            printf("opÁıes:\n\n[1] Venda de ingressos\n[2] DevoluÁ„o de  ingressos\n[0] Sair");
+            printf("op√ß√µes:\n\n[1] Venda de ingressos\n[2] Devolu√ß√£o de  ingressos\n[0] Sair");
             printf("\n<-=-=-=-=-=-=-=-=--=-=-=-=-=-=->\n");
-            printf("escolha uma opÁ„o: ");
+            printf("escolha uma op√ß√£o: ");
             scanf("%d", &escolha);
 
             switch(escolha){
@@ -892,10 +881,10 @@ int main(){
             }
         }while(escolha != 0);
 
-    printf("AtÈ mais!");
+    printf("At√© mais!");
     }
 
      else {
-        printf("Credenciais inv·lidas!\n");
+        printf("Credenciais inv√°lidas!\n");
     }
 }
